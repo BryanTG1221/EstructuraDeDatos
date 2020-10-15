@@ -1,0 +1,9 @@
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\bin\Debug\ActividadesED.exe.config
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\bin\Debug\ActividadesED.exe
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\bin\Debug\ActividadesED.pdb
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.csprojAssemblyReference.cache
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.Form1.resources
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.Properties.Resources.resources
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.csproj.GenerateResource.cache
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.exe
+C:\Users\Bryan Turrubiates\source\repos\ActividadesED\ActividadesED\obj\Debug\ActividadesED.pdb

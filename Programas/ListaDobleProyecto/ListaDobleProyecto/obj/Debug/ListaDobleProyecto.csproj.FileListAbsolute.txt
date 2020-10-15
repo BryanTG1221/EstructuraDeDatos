@@ -1,0 +1,9 @@
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\bin\Debug\ListaDobleProyecto.exe.config
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\bin\Debug\ListaDobleProyecto.exe
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\bin\Debug\ListaDobleProyecto.pdb
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.csprojAssemblyReference.cache
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.Form1.resources
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.Properties.Resources.resources
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.csproj.GenerateResource.cache
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.exe
+C:\Users\Bryan Turrubiates\source\repos\ListaDobleProyecto\ListaDobleProyecto\obj\Debug\ListaDobleProyecto.pdb
