@@ -77,6 +77,7 @@ namespace ListaDobleProyecto
             ListaDoble.AgregarNodo(GrupoMusical);
             dataGridView1.Rows.Clear();
             AgregarGrupo();
+            ClearAll();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -84,7 +85,9 @@ namespace ListaDobleProyecto
             ListaDoble.EliminarNodo(GrupoMusical);
             dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
             dataGridView1.Rows.Clear();
+            AgregarGrupo();
             MessageBox.Show("Grupo Eliminado\n" + GrupoMusical.NombreGrupo);
+            ClearAll();
         }
 
         public void EliminarNodo()
@@ -116,7 +119,28 @@ namespace ListaDobleProyecto
                 GrupoMusical.ConversionEstado = "SI";
             }
             GrupoMusical.FechaFundacion = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            
+            txtNombreAgrupacion.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtMonetizacion.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtNumeroDeIntegrantes.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtNombreDueño.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            cbxGenero.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            if (dataGridView1.CurrentRow.Cells[5].Value.ToString() == "A")
+            {
+                rdbClasificacionA.Select();
+            }
+            else
+            {
+                rdbClasificacionB.Select();
+            }
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "SI")
+            {
+                chkEstado.Checked = true;
+            }
+            else
+            {
+                chkEstado.Checked = false;
+            }
+            dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -147,6 +171,14 @@ namespace ListaDobleProyecto
             }
             GrupoMusical.FechaFundacion = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             MessageBox.Show("Encontramos su Grupo Musical:\n" + ListaDoble.Buscar(GrupoMusical) );
+        }
+
+        public void ClearAll()
+        {
+            txtNombreDueño.Clear();
+            txtNumeroDeIntegrantes.Clear();
+            txtNombreAgrupacion.Clear();
+            txtMonetizacion.Clear();
         }
     }
 }

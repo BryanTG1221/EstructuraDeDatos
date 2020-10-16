@@ -115,7 +115,7 @@ namespace ListaDobleProyecto
                     {
                         ClaseNodo<Tipo> nodoEliminado = new ClaseNodo<Tipo>();
                         nodoEliminado = nodoActual;
-                        if (nodoInicial.Equals(nodoInicial))
+                        if (nodoInicial.Equals(nodoFinal))
                         {
                             nodoInicial = null;
                             nodoFinal = null;
@@ -142,9 +142,11 @@ namespace ListaDobleProyecto
                                 }
                                 else
                                 {
+                                    nodoEliminado = nodoActual;
                                     nodoPrevio.Siguiente = nodoActual.Siguiente;
-                                    nodoActual.Siguiente.Anterior = nodoActual.Anterior;
+                                    nodoActual.Siguiente = nodoActual.Anterior;
                                     nodoActual = null;
+                                    return (nodoEliminado.ObjetoConDatos);
                                 }
                             }
                         }
