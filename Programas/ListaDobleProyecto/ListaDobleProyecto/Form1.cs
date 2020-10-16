@@ -81,8 +81,9 @@ namespace ListaDobleProyecto
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            EliminarNodo();
-            dataGridView1.Refresh();
+            ListaDoble.EliminarNodo(GrupoMusical);
+            dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+            dataGridView1.Rows.Clear();
             MessageBox.Show("Grupo Eliminado\n" + GrupoMusical.NombreGrupo);
         }
 

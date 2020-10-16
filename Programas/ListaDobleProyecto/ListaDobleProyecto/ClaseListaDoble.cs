@@ -79,7 +79,7 @@ namespace ListaDobleProyecto
                 do
                 {
                     if (Objeto.Equals(nodoActual.ObjetoConDatos))
-                    {
+                        {
                         throw new Exception("Ya tenemos un Grupo Musical registrado con los mismos datos.");
                     }
                     else
@@ -117,6 +117,7 @@ namespace ListaDobleProyecto
                         nodoEliminado = nodoActual;
                         if (nodoInicial.Equals(nodoInicial))
                         {
+                            nodoInicial = null;
                             nodoFinal = null;
                             nodoActual = null;
                             return (nodoEliminado.ObjetoConDatos);
