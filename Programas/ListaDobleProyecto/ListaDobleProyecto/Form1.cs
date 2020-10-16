@@ -19,6 +19,7 @@ namespace ListaDobleProyecto
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            rdbClasificacionA.Select();
             dataGridView1.Columns.Add("Nombre", "Nombre Grupo");
             dataGridView1.Columns.Add("Nombre", "Salario por Hora");
             dataGridView1.Columns.Add("Sueldo", "Integrantes");

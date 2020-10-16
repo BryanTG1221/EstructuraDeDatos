@@ -39,31 +39,23 @@ namespace ActividadesED
         {
             if (Vacia)
             {
-                throw new Exception("Lista Vacia");
+                throw new Exception("La lista esta vacia");
             }
             Nodo<Tipo> nodoActual = new Nodo<Tipo>();
             nodoActual = NodoInicial;
+
             do
             {
                 if (Objeto.Equals(nodoActual.ObjetoConDatos))
                 {
                     return (nodoActual.ObjetoConDatos);
                 }
-                else if (Objeto.CompareTo(nodoActual.ObjetoConDatos)==-1)
-                {
-                    throw new Exception("No existe");
-                }
-                else
-                {
-                    nodoActual = nodoActual.Siguiente;
-                }
+                nodoActual = nodoActual.Siguiente;
             } while (nodoActual != null);
-            {
-                throw new Exception("No encontrado");
-            }
+            throw new Exception("El nodo no existe");
         }
 
-        public void Vaciar()
+        public void EliminarNodo()
         {
             if (Vacia)
             {
@@ -88,9 +80,31 @@ namespace ActividadesED
             }
         }
 
+        public void Vaciar()
+        {
+            if (Vacia)
+            {
+                throw new Exception("La lista no contienen ningun Grupo Musical");
+            }
+            else
+            {
+                Nodo<Tipo> nodoPrevio = new Nodo<Tipo>();
+                Nodo<Tipo> nodoActual = new Nodo<Tipo>();
+                nodoActual = NodoInicial;
+                do
+                {
+                    nodoPrevio = nodoActual;
+                    nodoActual = nodoActual.Siguiente;
+                    nodoPrevio = null;
+                } while (nodoActual != null);
+                NodoInicial = null;
+                return;
+            }
+        }
+
         ~ListaOrdenadaSimple()
         {
-            Vaciar();
+            EliminarNodo();
         }
         
 
@@ -101,46 +115,54 @@ namespace ActividadesED
                 Nodo<Tipo> nodoNuevo = new Nodo<Tipo>();
                 nodoNuevo.ObjetoConDatos = objeto;
                 nodoNuevo.Siguiente = null;
-                this._NodoInicial = nodoNuevo;
+                this.NodoInicial = nodoNuevo;
+                return;
             }
             else
             {
                 Nodo<Tipo> nodoActual = new Nodo<Tipo>();
-                nodoActual = this._NodoInicial;
+                nodoActual = this.NodoInicial;
                 Nodo<Tipo> nodoPrevio = new Nodo<Tipo>();
                 do
                 {
-                   
                     if (objeto.Equals(nodoActual.ObjetoConDatos))
                     {
                         throw new Exception("Duplicado");
                     }
-                    if (objeto.CompareTo(nodoActual.ObjetoConDatos)==-1)
+                    else
                     {
-                        if (nodoActual.Equals(_NodoInicial))
+                        if (objeto.CompareTo(nodoActual.ObjetoConDatos) == -1)
                         {
-                            Nodo<Tipo> nodoNuevo = new ActividadesED.Nodo<Tipo>();
-                            nodoNuevo.ObjetoConDatos = objeto;
-                            nodoNuevo.Siguiente = this._NodoInicial;
-                            this._NodoInicial = nodoNuevo;
+                            if (nodoActual.Equals(NodoInicial))
+                            {
+                                Nodo<Tipo> nodoNuevo2 = new Nodo<Tipo>();
+                                nodoNuevo2.ObjetoConDatos = objeto;
+                                nodoNuevo2.Siguiente = this.NodoInicial;
+                                this.NodoInicial = nodoNuevo2;
+                                return;
+                            }
+                            else
+                            {
+                                Nodo<Tipo> nodoNuevo2 = new Nodo<Tipo>();
+                                nodoNuevo2.ObjetoConDatos = objeto;
+                                nodoNuevo2.Siguiente = nodoPrevio.Siguiente;
+                                nodoPrevio.Siguiente = nodoNuevo2;
+                                return;
+                            }
                         }
                         else
                         {
-                            Nodo<Tipo> nodoNuevo = new Nodo<Tipo>();
-                            nodoNuevo.ObjetoConDatos = objeto;
-                            nodoNuevo.Siguiente = nodoPrevio.Siguiente;
-                            nodoPrevio.Siguiente = nodoNuevo;
+                            nodoPrevio = nodoActual;
+                            nodoActual = nodoActual.Siguiente;    
                         }
-
+                        
                     }
-                    
-                    
-                        nodoPrevio = nodoActual;
-                        nodoActual = nodoActual.Siguiente;
-                    
-                    
-
                 } while (nodoActual != null);
+                Nodo<Tipo> nodoNuevo = new Nodo<Tipo>();
+                nodoNuevo.ObjetoConDatos = objeto;
+                nodoPrevio.Siguiente = nodoNuevo;
+                nodoNuevo.Siguiente = null;
+                return;
             }
         }
 

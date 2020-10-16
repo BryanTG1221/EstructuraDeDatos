@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ListaDobleProyecto"
   ],
-  "SelectedNode": "\\ListaDobleProyecto.sln",
+  "SelectedNode": "\\ListaDobleProyecto\\ClaseListaDoble.cs",
   "PreviewInSolutionExplorer": false
 }

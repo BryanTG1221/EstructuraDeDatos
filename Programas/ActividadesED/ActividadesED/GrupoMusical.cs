@@ -93,7 +93,7 @@ namespace ActividadesED
 
 		public bool Equals(GrupoMusical grupoMusical)
 		{
-			return (this._strNombreGrupo == grupoMusical._strNombreGrupo && this._strNombreDueño == grupoMusical._strNombreDueño && this._dblPrecioHora == grupoMusical._dblPrecioHora && this._chrClasificacion == grupoMusical._chrClasificacion && this._bolEstado == grupoMusical._bolEstado && this._FechaFundacion == grupoMusical._FechaFundacion && this._intCantidadIntegrantes == grupoMusical._intCantidadIntegrantes&&this.LogoGrupo==grupoMusical.LogoGrupo&&this.ConversionEstado==grupoMusical.ConversionEstado);
+			return (this._strNombreGrupo == grupoMusical._strNombreGrupo && this._strNombreDueño == grupoMusical._strNombreDueño && this._dblPrecioHora == grupoMusical._dblPrecioHora && this._chrClasificacion == grupoMusical._chrClasificacion && this._bolEstado == grupoMusical._bolEstado && this._FechaFundacion == grupoMusical._FechaFundacion && this._intCantidadIntegrantes == grupoMusical._intCantidadIntegrantes&&this.LogoGrupo==grupoMusical.LogoGrupo);
 			
 		}
 

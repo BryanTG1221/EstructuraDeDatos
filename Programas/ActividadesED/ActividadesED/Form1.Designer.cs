@@ -52,6 +52,7 @@
             this.btnExaminarImagen = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnVaciar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(430, 252);
+            this.btnIngresar.Location = new System.Drawing.Point(561, 296);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(105, 41);
             this.btnIngresar.TabIndex = 2;
@@ -115,12 +116,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 303);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 355);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(795, 145);
+            this.dataGridView1.Size = new System.Drawing.Size(884, 201);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // rdbClasificacionA
             // 
@@ -231,9 +233,9 @@
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(551, 118);
+            this.pic.Location = new System.Drawing.Point(672, 123);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(224, 151);
+            this.pic.Size = new System.Drawing.Size(224, 192);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic.TabIndex = 19;
             this.pic.TabStop = false;
@@ -241,7 +243,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(491, 123);
+            this.label9.Location = new System.Drawing.Point(612, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 17);
             this.label9.TabIndex = 20;
@@ -249,7 +251,7 @@
             // 
             // btnExaminarImagen
             // 
-            this.btnExaminarImagen.Location = new System.Drawing.Point(551, 269);
+            this.btnExaminarImagen.Location = new System.Drawing.Point(672, 321);
             this.btnExaminarImagen.Name = "btnExaminarImagen";
             this.btnExaminarImagen.Size = new System.Drawing.Size(224, 28);
             this.btnExaminarImagen.TabIndex = 21;
@@ -259,7 +261,7 @@
             // 
             // btneliminar
             // 
-            this.btneliminar.Location = new System.Drawing.Point(430, 205);
+            this.btneliminar.Location = new System.Drawing.Point(561, 249);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(105, 41);
             this.btneliminar.TabIndex = 22;
@@ -269,7 +271,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(430, 158);
+            this.btnBuscar.Location = new System.Drawing.Point(561, 158);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(105, 41);
             this.btnBuscar.TabIndex = 23;
@@ -277,11 +279,22 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnVaciar
+            // 
+            this.btnVaciar.Location = new System.Drawing.Point(561, 205);
+            this.btnVaciar.Name = "btnVaciar";
+            this.btnVaciar.Size = new System.Drawing.Size(105, 41);
+            this.btnVaciar.TabIndex = 24;
+            this.btnVaciar.Text = "Vaciar";
+            this.btnVaciar.UseVisualStyleBackColor = true;
+            this.btnVaciar.Click += new System.EventHandler(this.btnVaciar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 568);
+            this.Controls.Add(this.btnVaciar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnExaminarImagen);
@@ -342,6 +355,7 @@
         private System.Windows.Forms.Button btnExaminarImagen;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnVaciar;
     }
 }
 

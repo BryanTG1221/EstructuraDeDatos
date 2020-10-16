@@ -116,8 +116,9 @@ namespace ActividadesED
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            nuevaListaGrupo.Vaciar();
+            nuevaListaGrupo.EliminarNodo();
             dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+            MessageBox.Show("Grupo Eliminado \n " + GrupoMusicalOBJ.NombreGrupo);
 
         }
 
@@ -133,6 +134,60 @@ namespace ActividadesED
             grupoMusical.Clasificacion = Clasificacion();
             grupoMusical.FechaFundacion = dtpFundacion.Text;
             nuevaListaGrupo.BuscarNodo(grupoMusical);
+            MessageBox.Show("Grupo encontrado: \n" + grupoMusical.NombreGrupo);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GrupoMusicalOBJ = new GrupoMusical();
+            GrupoMusicalOBJ.NombreGrupo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            GrupoMusicalOBJ.NombreDueño = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            GrupoMusicalOBJ.Genero = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            string EstadoAux = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            GrupoMusicalOBJ.Clasificacion = Convert.ToChar(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+            if (EstadoAux == "NO")
+            {
+                GrupoMusicalOBJ.Estado = false;
+                GrupoMusicalOBJ.ConversionEstado = "NO";
+            }
+            else
+            {
+                GrupoMusicalOBJ.Estado = true;
+                GrupoMusicalOBJ.ConversionEstado = "SI";
+            }
+            GrupoMusicalOBJ.FechaFundacion = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            txtNombreAgrupacion.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtMonetizacionHora.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtCantidadIntegrantes.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtNombreDueño.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            cbo.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            if (dataGridView1.CurrentRow.Cells[5].Value.ToString() == "A")
+            {
+                rdbClasificacionA.Select();
+            }
+            else
+            {
+                rdbClasificacionB.Select();
+            }
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "SI")
+            {
+                chk.Checked = true;
+            }
+            else
+            {
+                chk.Checked = false;
+            }
+            dtpFundacion.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void btnVaciar_Click(object sender, EventArgs e)
+        {
+            nuevaListaGrupo.Vaciar();
+            dataGridView1.Rows.Clear();
+
+
         }
     }
 }
