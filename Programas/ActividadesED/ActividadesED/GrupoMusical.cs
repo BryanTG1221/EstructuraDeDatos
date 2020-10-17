@@ -98,9 +98,10 @@ namespace ActividadesED
 		}
 
 		public int CompareTo(GrupoMusical grupoMusical)
-		{
-			return -1;
-		}
+			=> string.Compare(NombreGrupo, grupoMusical.NombreGrupo);
+		
+			
+		
 
 
 

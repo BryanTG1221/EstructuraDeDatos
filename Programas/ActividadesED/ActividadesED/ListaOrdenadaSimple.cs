@@ -90,13 +90,14 @@ namespace ActividadesED
                         }
                         else if (nodoActual.Equals(NodoFinal))
                         {
-                            nodoPrevio.Siguiente = null;
-                            NodoFinal = nodoPrevio;
+                            nodoPrevio.Siguiente = nodoActual.Siguiente;
+                            nodoActual = null;
                             return (nodoEliminado.ObjetoConDatos);
                         }
                         else
                         {
                             nodoPrevio.Siguiente = nodoActual.Siguiente;
+                            nodoActual = null;
                             return (nodoEliminado.ObjetoConDatos);
                         }
                     }
