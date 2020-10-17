@@ -22,6 +22,15 @@ namespace ActividadesED
             set { _NodoInicial = value; }
         }//Propiedad
 
+        private Nodo<Tipo> _nodoFinal;
+
+        public Nodo<Tipo> NodoFinal
+        {
+            get { return _nodoFinal; }
+            set { _nodoFinal = value; }
+        }
+
+
         public bool Vacia
         {
             get
@@ -55,28 +64,50 @@ namespace ActividadesED
             throw new Exception("El nodo no existe");
         }
 
-        public void EliminarNodo()
+        public Tipo EliminarNodo(Tipo Objeto)
         {
             if (Vacia)
             {
-                return;
+                throw new Exception("Lista Vacia");
             }
             else
             {
-                Nodo<Tipo> nodoPrevio = new Nodo<Tipo>();
                 Nodo<Tipo> nodoActual = new Nodo<Tipo>();
-                nodoActual = _NodoInicial;
-
+                Nodo<Tipo> nodoPrevio = new Nodo<Tipo>();
+                nodoActual = NodoInicial;
+                nodoPrevio = null;
                 do
                 {
-                    nodoPrevio = nodoActual;
-                    nodoActual = nodoActual.Siguiente;
-                    nodoPrevio = null;
-                } while (nodoActual != null);
-                {
-                    _NodoInicial = null;
-                    return;
-                }
+                    if (nodoActual.ObjetoConDatos.Equals(Objeto))
+                    {
+                        Nodo<Tipo> nodoEliminado = new Nodo<Tipo>();
+                        nodoEliminado = nodoActual;
+                        if (nodoActual.Equals(NodoInicial))
+                        {
+                            NodoInicial = NodoInicial.Siguiente;
+                            nodoActual = null;
+                            return (nodoEliminado.ObjetoConDatos);
+                        }
+                        else if (nodoActual.Equals(NodoFinal))
+                        {
+                            nodoPrevio.Siguiente = null;
+                            NodoFinal = nodoPrevio;
+                            return (nodoEliminado.ObjetoConDatos);
+                        }
+                        else
+                        {
+                            nodoPrevio.Siguiente = nodoActual.Siguiente;
+                            return (nodoEliminado.ObjetoConDatos);
+                        }
+                    }
+                    else
+                    {
+                        nodoPrevio = nodoActual;
+                        nodoActual = nodoActual.Siguiente;
+                    }
+                                   
+                } while (NodoInicial != null);
+                throw new Exception("No se encontro el Grupo a a Eliminar");
             }
         }
 
@@ -104,7 +135,7 @@ namespace ActividadesED
 
         ~ListaOrdenadaSimple()
         {
-            EliminarNodo();
+            Vaciar();
         }
         
 

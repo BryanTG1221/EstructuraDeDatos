@@ -159,7 +159,8 @@ namespace ActividadesED
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            nuevaListaGrupo.EliminarNodo();
+
+            nuevaListaGrupo.EliminarNodo(GrupoMusicalOBJ);
             dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
             MessageBox.Show("Grupo Eliminado \n " + GrupoMusicalOBJ.NombreGrupo);
             ClearAll();
