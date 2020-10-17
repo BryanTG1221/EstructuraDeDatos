@@ -78,7 +78,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(561, 296);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(105, 41);
-            this.btnIngresar.TabIndex = 2;
+            this.btnIngresar.TabIndex = 13;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -91,17 +91,17 @@
             "Rock",
             "Cumbia",
             "Bachata"});
-            this.cbo.Location = new System.Drawing.Point(78, 202);
+            this.cbo.Location = new System.Drawing.Point(78, 209);
             this.cbo.Name = "cbo";
             this.cbo.Size = new System.Drawing.Size(157, 24);
-            this.cbo.TabIndex = 3;
+            this.cbo.TabIndex = 5;
             // 
             // dtpFundacion
             // 
             this.dtpFundacion.Location = new System.Drawing.Point(588, 37);
             this.dtpFundacion.Name = "dtpFundacion";
             this.dtpFundacion.Size = new System.Drawing.Size(200, 22);
-            this.dtpFundacion.TabIndex = 4;
+            this.dtpFundacion.TabIndex = 8;
             // 
             // chk
             // 
@@ -109,7 +109,7 @@
             this.chk.Location = new System.Drawing.Point(551, 80);
             this.chk.Name = "chk";
             this.chk.Size = new System.Drawing.Size(68, 21);
-            this.chk.TabIndex = 5;
+            this.chk.TabIndex = 9;
             this.chk.Text = "Activo";
             this.chk.UseVisualStyleBackColor = true;
             // 
@@ -131,7 +131,7 @@
             this.rdbClasificacionA.Location = new System.Drawing.Point(125, 239);
             this.rdbClasificacionA.Name = "rdbClasificacionA";
             this.rdbClasificacionA.Size = new System.Drawing.Size(38, 21);
-            this.rdbClasificacionA.TabIndex = 7;
+            this.rdbClasificacionA.TabIndex = 6;
             this.rdbClasificacionA.TabStop = true;
             this.rdbClasificacionA.Text = "A";
             this.rdbClasificacionA.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.txtMonetizacionHora.Location = new System.Drawing.Point(173, 78);
             this.txtMonetizacionHora.Name = "txtMonetizacionHora";
             this.txtMonetizacionHora.Size = new System.Drawing.Size(107, 22);
-            this.txtMonetizacionHora.TabIndex = 9;
+            this.txtMonetizacionHora.TabIndex = 2;
             // 
             // label3
             // 
@@ -166,7 +166,7 @@
             this.txtCantidadIntegrantes.Location = new System.Drawing.Point(173, 118);
             this.txtCantidadIntegrantes.Name = "txtCantidadIntegrantes";
             this.txtCantidadIntegrantes.Size = new System.Drawing.Size(107, 22);
-            this.txtCantidadIntegrantes.TabIndex = 11;
+            this.txtCantidadIntegrantes.TabIndex = 3;
             // 
             // label4
             // 
@@ -182,7 +182,7 @@
             this.txtNombreDueño.Location = new System.Drawing.Point(149, 167);
             this.txtNombreDueño.Name = "txtNombreDueño";
             this.txtNombreDueño.Size = new System.Drawing.Size(202, 22);
-            this.txtNombreDueño.TabIndex = 13;
+            this.txtNombreDueño.TabIndex = 4;
             // 
             // label5
             // 
@@ -208,7 +208,7 @@
             this.rdbClasificacionB.Location = new System.Drawing.Point(125, 274);
             this.rdbClasificacionB.Name = "rdbClasificacionB";
             this.rdbClasificacionB.Size = new System.Drawing.Size(38, 21);
-            this.rdbClasificacionB.TabIndex = 16;
+            this.rdbClasificacionB.TabIndex = 7;
             this.rdbClasificacionB.TabStop = true;
             this.rdbClasificacionB.Text = "B";
             this.rdbClasificacionB.UseVisualStyleBackColor = true;
@@ -254,7 +254,7 @@
             this.btnExaminarImagen.Location = new System.Drawing.Point(672, 321);
             this.btnExaminarImagen.Name = "btnExaminarImagen";
             this.btnExaminarImagen.Size = new System.Drawing.Size(224, 28);
-            this.btnExaminarImagen.TabIndex = 21;
+            this.btnExaminarImagen.TabIndex = 14;
             this.btnExaminarImagen.Text = "Examinar";
             this.btnExaminarImagen.UseVisualStyleBackColor = true;
             this.btnExaminarImagen.Click += new System.EventHandler(this.btnExaminarImagen_Click);
@@ -264,7 +264,7 @@
             this.btneliminar.Location = new System.Drawing.Point(561, 249);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(105, 41);
-            this.btneliminar.TabIndex = 22;
+            this.btneliminar.TabIndex = 12;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
@@ -274,7 +274,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(561, 158);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(105, 41);
-            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -284,7 +284,7 @@
             this.btnVaciar.Location = new System.Drawing.Point(561, 205);
             this.btnVaciar.Name = "btnVaciar";
             this.btnVaciar.Size = new System.Drawing.Size(105, 41);
-            this.btnVaciar.TabIndex = 24;
+            this.btnVaciar.TabIndex = 11;
             this.btnVaciar.Text = "Vaciar";
             this.btnVaciar.UseVisualStyleBackColor = true;
             this.btnVaciar.Click += new System.EventHandler(this.btnVaciar_Click);

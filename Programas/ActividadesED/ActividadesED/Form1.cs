@@ -82,11 +82,54 @@ namespace ActividadesED
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             GrupoMusicalOBJ = new GrupoMusical();
-            GrupoMusicalOBJ.NombreGrupo = txtNombreAgrupacion.Text;
-            GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
-            GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);
-            GrupoMusicalOBJ.NombreDueño = txtNombreDueño.Text;
-            GrupoMusicalOBJ.Genero = cbo.Text;
+            if (txtNombreAgrupacion.Text == "")
+            {
+                MessageBox.Show("No ingreso el nombre de la agrupacion.");
+                ClearAll();
+            }
+            else
+            {
+                GrupoMusicalOBJ.NombreGrupo = txtNombreAgrupacion.Text;
+            }
+            if (txtMonetizacionHora.Text == "")
+            {
+                MessageBox.Show("No ingreso la paga por hora de la Agrupacion.");
+                ClearAll();
+            }
+            else
+            {
+                GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
+
+            }
+            if (txtCantidadIntegrantes.Text == "")
+            {
+                MessageBox.Show("No ingreso cuantos integrantes conforman su Agrupacion.");
+                ClearAll();
+            }
+            else
+            {
+                GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);             
+
+            }
+            if (txtNombreDueño.Text == "")
+            {
+                MessageBox.Show("No ingreso el nombre del dueño de la Agrupacion.");
+                ClearAll();
+            }
+            else
+            {
+                 GrupoMusicalOBJ.NombreDueño = txtNombreDueño.Text;
+            }
+            if (cbo.Text == "")
+            {
+                MessageBox.Show("No ingreso el Genero de la agrupacion.");
+                ClearAll();
+            }
+            else
+            {
+                GrupoMusicalOBJ.Genero = cbo.Text;
+
+            }
             GrupoMusicalOBJ.Estado = Estado();
             GrupoMusicalOBJ.Clasificacion = Clasificacion();
             GrupoMusicalOBJ.FechaFundacion = dtpFundacion.Text;
@@ -119,6 +162,7 @@ namespace ActividadesED
             nuevaListaGrupo.EliminarNodo();
             dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
             MessageBox.Show("Grupo Eliminado \n " + GrupoMusicalOBJ.NombreGrupo);
+            ClearAll();
 
         }
 
@@ -135,6 +179,7 @@ namespace ActividadesED
             grupoMusical.FechaFundacion = dtpFundacion.Text;
             nuevaListaGrupo.BuscarNodo(grupoMusical);
             MessageBox.Show("Grupo encontrado: \n" + grupoMusical.NombreGrupo);
+            ClearAll();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
