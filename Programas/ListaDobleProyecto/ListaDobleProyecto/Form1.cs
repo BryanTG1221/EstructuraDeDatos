@@ -64,19 +64,58 @@ namespace ListaDobleProyecto
             return ClasificacionChar;
         }
 
+        public void AgregarImagen()
+        {
+            OpenFileDialog ObtenerImagen = new OpenFileDialog();
+            ObtenerImagen.InitialDirectory = "C:\\";
+            ObtenerImagen.Filter = "Archivos de Imagen (*jpg)(*jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF (.gif)|*.gif";
+            if (ObtenerImagen.ShowDialog() == DialogResult.OK)
+            {
+                GrupoMusical.LogoGrupo = ObtenerImagen.FileName;
+                picbImagen.ImageLocation = ObtenerImagen.FileName;
+
+            }
+            else
+            {
+                MessageBox.Show("No selecciono ninguna imagen", "sin seleccion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             GrupoMusical = new objeto();
-            GrupoMusical.NombreGrupo = txtNombreAgrupacion.Text;
-            GrupoMusical.PrecioHora = Convert.ToDouble(txtMonetizacion.Text);
-            GrupoMusical.CantidadIntegrantes = Convert.ToInt32(txtNumeroDeIntegrantes.Text);
-            GrupoMusical.NombreDueño = txtNombreDueño.Text;
-            GrupoMusical.Genero = cbxGenero.Text;
+            if (txtNombreAgrupacion.Text == "")
+            {
+                MessageBox.Show("No ingreso el nombre de su Grupo Musical");
+                ClearAll();
+            }
+            else { GrupoMusical.NombreGrupo = txtNombreAgrupacion.Text; }
+            if (txtMonetizacion.Text == "")
+            {
+                MessageBox.Show("No ingreso el pago por hora");
+                ClearAll();
+            }else { GrupoMusical.PrecioHora = Convert.ToDouble(txtMonetizacion.Text); }
+            if (txtNumeroDeIntegrantes.Text == "")
+            {
+                MessageBox.Show("No ingreso cuantas personas conforman su Agrupacion");
+                ClearAll();
+            }else { GrupoMusical.CantidadIntegrantes = Convert.ToInt32(txtNumeroDeIntegrantes.Text); }
+            if (txtNombreDueño.Text == "")
+            {
+                MessageBox.Show("No ingreso el nombre del dueño de la Agrupacion");
+                ClearAll();
+            }else { GrupoMusical.NombreDueño = txtNombreDueño.Text; }
+            if (cbxGenero.Text == "")
+            {
+                MessageBox.Show("No ingreso el genero del Grupo");
+                ClearAll();
+            }else { GrupoMusical.Genero = cbxGenero.Text; }
             GrupoMusical.Estado = Estado();
             GrupoMusical.Clasificacion = Clasificacion();
             GrupoMusical.FechaFundacion = dateTimePicker1.Text;
             ListaDoble.AgregarNodo(GrupoMusical);
             dataGridView1.Rows.Clear();
+            AgregarImagen();
             AgregarGrupo();
             ClearAll();
         }
@@ -141,7 +180,8 @@ namespace ListaDobleProyecto
             {
                 chkEstado.Checked = false;
             }
-            dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();            
+            dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            picbImagen.Image = System.Drawing.Image.FromFile(dataGridView1.CurrentRow.Cells[8].Value.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,6 +189,7 @@ namespace ListaDobleProyecto
             ListaDoble.Vaciar();
             dataGridView1.Rows.Clear();
         }
+        
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -180,6 +221,11 @@ namespace ListaDobleProyecto
             txtNumeroDeIntegrantes.Clear();
             txtNombreAgrupacion.Clear();
             txtMonetizacion.Clear();
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

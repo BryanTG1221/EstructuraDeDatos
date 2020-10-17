@@ -49,7 +49,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pic = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnExaminarImagen = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnVaciar = new System.Windows.Forms.Button();
@@ -249,16 +248,6 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Logo:";
             // 
-            // btnExaminarImagen
-            // 
-            this.btnExaminarImagen.Location = new System.Drawing.Point(672, 321);
-            this.btnExaminarImagen.Name = "btnExaminarImagen";
-            this.btnExaminarImagen.Size = new System.Drawing.Size(224, 28);
-            this.btnExaminarImagen.TabIndex = 14;
-            this.btnExaminarImagen.Text = "Examinar";
-            this.btnExaminarImagen.UseVisualStyleBackColor = true;
-            this.btnExaminarImagen.Click += new System.EventHandler(this.btnExaminarImagen_Click);
-            // 
             // btneliminar
             // 
             this.btneliminar.Location = new System.Drawing.Point(561, 249);
@@ -297,7 +286,6 @@
             this.Controls.Add(this.btnVaciar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btneliminar);
-            this.Controls.Add(this.btnExaminarImagen);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pic);
             this.Controls.Add(this.label8);
@@ -352,7 +340,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pic;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnExaminarImagen;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnVaciar;

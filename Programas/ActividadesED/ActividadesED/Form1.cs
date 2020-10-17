@@ -136,11 +136,12 @@ namespace ActividadesED
             nuevaListaGrupo.AgregarNodo(GrupoMusicalOBJ);
 
             dataGridView1.Rows.Clear();
+            AgregarImagen();
             AgregarGrupo();
             ClearAll();
-        }
 
-        private void btnExaminarImagen_Click(object sender, EventArgs e)
+        }
+        public void AgregarImagen()
         {
             OpenFileDialog ObtenerImagen = new OpenFileDialog();
             ObtenerImagen.InitialDirectory = "C:\\";
@@ -155,6 +156,10 @@ namespace ActividadesED
             {
                 MessageBox.Show("No selecciono ninguna imagen", "sin seleccion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnExaminarImagen_Click(object sender, EventArgs e)
+        {
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -226,6 +231,7 @@ namespace ActividadesED
                 chk.Checked = false;
             }
             dtpFundacion.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            pic.Image = System.Drawing.Image.FromFile(dataGridView1.CurrentRow.Cells[8].Value.ToString());
         }
 
         private void btnVaciar_Click(object sender, EventArgs e)

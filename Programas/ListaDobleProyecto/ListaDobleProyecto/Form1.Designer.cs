@@ -46,15 +46,14 @@
             this.rdbClasificacionA = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.chkEstado = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnExaminar = new System.Windows.Forms.Button();
+            this.picbImagen = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,22 +220,14 @@
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // picbImagen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(575, 107);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(213, 196);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnExaminar
-            // 
-            this.btnExaminar.Location = new System.Drawing.Point(575, 309);
-            this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(213, 30);
-            this.btnExaminar.TabIndex = 18;
-            this.btnExaminar.Text = "Examinar";
-            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.picbImagen.Location = new System.Drawing.Point(575, 107);
+            this.picbImagen.Name = "picbImagen";
+            this.picbImagen.Size = new System.Drawing.Size(213, 196);
+            this.picbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbImagen.TabIndex = 17;
+            this.picbImagen.TabStop = false;
             // 
             // btnBuscar
             // 
@@ -299,8 +290,7 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnExaminar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picbImagen);
             this.Controls.Add(this.chkEstado);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.groupBox1);
@@ -322,7 +312,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,8 +339,7 @@
         private System.Windows.Forms.RadioButton rdbClasificacionA;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.CheckBox chkEstado;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExaminar;
+        private System.Windows.Forms.PictureBox picbImagen;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnIngresar;
