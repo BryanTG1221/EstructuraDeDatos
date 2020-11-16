@@ -204,7 +204,7 @@ namespace ArbolBinarioBusqueda
 
         private void btnEliminarNodo_Click(object sender, EventArgs e)
         {
-            ObjetoInteligente.Edad = GenerarIntRandom();
+            ObjetoInteligente.Edad = Convert.ToInt32(txtInt.Text);
             ObjetoInteligente.Puesto = comboBox1.Text;
             ObjetoInteligente.Hora = Convert.ToDateTime(dtmHora.Text);
             if (chkHomeOffice.Checked)

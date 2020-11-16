@@ -83,112 +83,85 @@ namespace ArbolBinarioBusqueda
 
 		}
 
-		public void Eliminar (Tipo Objeto)
+		public Tipo Eliminar (Tipo Objeto)
 		{
-			if (Vacio)
-			{
-				throw new Exception("No se puede eliminar, Esta Vacio");
-			}
-			ClaseNodo<Tipo> nodoActual = Raiz;
-			ClaseNodo<Tipo> Padre = null;
-			while (Objeto.Equals(nodoActual.ObjetoConDatos))
+			if (Vacio) throw new Exception("Esta vacia");
+			ClaseNodo<Tipo> nodoActual = Raiz, Padre = null;
+			// Búsqueda del nodo que se desea eliminar 
+			while (!Objeto.Equals(nodoActual.ObjetoConDatos))
 			{
 				if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == -1)
 				{
-					Padre = nodoActual;
-					nodoActual = nodoActual.HijoIzquierdo;
+					Padre = nodoActual; nodoActual = nodoActual.HijoIzquierdo;
+					// Recorre el subárbol izquierdo
 				}
 				else
 				{
-					if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == -1)
+					if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == 1)
 					{
-						Padre = nodoActual;
-						nodoActual = nodoActual.HijoDerecho;
+						Padre = nodoActual; nodoActual = nodoActual.HijoDerecho;
+						// Recorre el subárbol derecho 
 					}
 				}
-				if (nodoActual == null)
-				{
-					throw new Exception("El nodo no existe");
-				}
-				if (nodoActual.HijoDerecho == null)
-				{
-					if (Padre == null)
-					{
-						Raiz = nodoActual.HijoIzquierdo;
-					}
-					else
-					{
-						if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-						{
-							Padre.HijoIzquierdo = nodoActual.HijoIzquierdo;
-						}
-						else
-						{
-							if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-							{
-								Padre.HijoDerecho = nodoActual.HijoIzquierdo;
-							}
-						}
-					}
-				}
+				if (nodoActual == null) throw new Exception("No se encontro");
+				// No se eliminó ... no existe el nodo 
+			} // Se encontró el nodo que se desea eliminar 
+			  // Caso 1: Si el NodoActual no tiene hijo derecho entonces su hijo izquierdo se convierte en // el nodo apuntado por su Padre 
+			if (nodoActual.HijoDerecho == null)
+			{
+				if (Padre == null) Raiz = nodoActual.HijoIzquierdo;
 				else
 				{
-					if (nodoActual.HijoDerecho.HijoIzquierdo == null)
-					{
-						nodoActual.HijoDerecho.HijoIzquierdo = nodoActual.HijoIzquierdo;
-						if (Padre == null)
-						{
-							Raiz = nodoActual.HijoDerecho;
-						}
-						else
-						{
-							if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-							{
-								Padre.HijoIzquierdo = nodoActual.HijoDerecho;
-							}
-							else
-							{
-								if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-								{
-									Padre.HijoDerecho = nodoActual.HijoDerecho;
-								}
-							}
-						}
-					}
+					if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == 1) Padre.HijoIzquierdo = nodoActual.HijoIzquierdo;
 					else
 					{
-						ClaseNodo<Tipo> NodoMenor = nodoActual.HijoDerecho.HijoIzquierdo;
-						ClaseNodo<Tipo> padreNodoMenor = nodoActual.HijoDerecho;
-						while (NodoMenor.HijoIzquierdo != null)
-						{
-							padreNodoMenor = NodoMenor;
-							NodoMenor = NodoMenor.HijoIzquierdo;
-						}
-						padreNodoMenor.HijoIzquierdo = NodoMenor.HijoDerecho;
-						NodoMenor.HijoIzquierdo = nodoActual.HijoIzquierdo;
-						NodoMenor.HijoDerecho = nodoActual.HijoDerecho;
-						if (Padre == null)
-						{
-							Raiz = NodoMenor;
-						}
-						else
-						{
-							if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-							{
-								Padre.HijoIzquierdo = NodoMenor;
-							}
-							else
-							{
-								if (Objeto.CompareTo(Padre.ObjetoConDatos) == -1)
-								{
-									Padre.HijoDerecho = NodoMenor;
-								}
-							}
-						}
+						if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == -1) Padre.HijoDerecho = nodoActual.HijoDerecho;
 					}
 				}
-
 			}
+			else
+			{
+				// Caso 2: Si el hijo derecho del NodoActual no tiene hijo izquierdo entonces el hijo derecho // del NodoActual reemplaza al NodoActual 
+				if (nodoActual.HijoDerecho.HijoIzquierdo == null)
+				{
+					nodoActual.HijoDerecho.HijoIzquierdo = nodoActual.HijoIzquierdo;
+					if (Padre == null) Raiz = nodoActual.HijoDerecho;
+					else
+					{
+						if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == 1) Padre.HijoIzquierdo = nodoActual.HijoDerecho;
+						else
+						{
+							if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == -1) Padre.HijoDerecho = nodoActual.HijoDerecho;
+						}
+					}
+				}
+				else
+				{
+					// Caso 3: Si el hijo derecho del NodoActual tiene hijo izquierdo se reemplaza el // NodoActual con el hijo menor del subárbol derecho 
+					// Inicia la búsqueda del nodo ubicado más a la izquierda de la rama derecha 
+					ClaseNodo<Tipo> NodoMenor = nodoActual.HijoDerecho.HijoIzquierdo, PadreDelNodoMenor = nodoActual.HijoDerecho;
+					while (NodoMenor.HijoIzquierdo != null)
+					{
+						PadreDelNodoMenor = NodoMenor;
+						NodoMenor = NodoMenor.HijoIzquierdo;
+					}
+					// El subárbol izquierdo de su padre se convierte en el subárbol derecho del NodoMenor 
+					PadreDelNodoMenor.HijoIzquierdo = NodoMenor.HijoDerecho;
+					// Asigna los hijos del NodoMenor a los hijos del NodoActual 
+					NodoMenor.HijoIzquierdo = nodoActual.HijoIzquierdo;
+					NodoMenor.HijoDerecho = nodoActual.HijoDerecho;
+					if (Padre == null) Raiz = NodoMenor;
+					else
+					{
+						if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == 1) Padre.HijoIzquierdo = NodoMenor;
+						else
+						{
+							if (Padre.ObjetoConDatos.CompareTo(nodoActual.ObjetoConDatos) == -1) Padre.HijoDerecho = NodoMenor;
+						}
+					}
+				}
+			}
+			return (nodoActual.ObjetoConDatos);
 		}
 
 
