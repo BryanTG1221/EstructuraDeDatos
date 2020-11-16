@@ -113,11 +113,19 @@ namespace ListaDobleProyecto
             GrupoMusical.Estado = Estado();
             GrupoMusical.Clasificacion = Clasificacion();
             GrupoMusical.FechaFundacion = dateTimePicker1.Text;
-            ListaDoble.AgregarNodo(GrupoMusical);
-            dataGridView1.Rows.Clear();
-            AgregarImagen();
-            AgregarGrupo();
-            ClearAll();
+            if (txtNombreAgrupacion.Text != "" && txtMonetizacion.Text != "" && txtNombreDueño.Text != "" && txtNumeroDeIntegrantes.Text != "" && cbxGenero.Text != "")
+            {
+                
+                ListaDoble.AgregarNodo(GrupoMusical);
+                dataGridView1.Rows.Clear();
+                AgregarImagen();
+                AgregarGrupo();
+                ClearAll();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese los datos nuevamente.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -181,7 +189,12 @@ namespace ListaDobleProyecto
                 chkEstado.Checked = false;
             }
             dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            picbImagen.Image = System.Drawing.Image.FromFile(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+            if (dataGridView1.CurrentRow.Cells[8].Value.ToString() != "")
+            {
+               picbImagen.Image = System.Drawing.Image.FromFile(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+                GrupoMusical.LogoGrupo = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -1,0 +1,4 @@
+digraph Figura {
+Raiz->ArbolBinarioBusqueda.ClaseRoja;
+ArbolBinarioBusqueda.ClaseRoja->ArbolBinarioBusqueda.ClaseRoja;
+

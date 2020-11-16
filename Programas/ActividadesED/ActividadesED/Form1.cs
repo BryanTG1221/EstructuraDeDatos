@@ -81,64 +81,79 @@ namespace ActividadesED
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            GrupoMusicalOBJ = new GrupoMusical();
-            if (txtNombreAgrupacion.Text == "")
+            try
             {
-                MessageBox.Show("No ingreso el nombre de la agrupacion.");
-                ClearAll();
-            }
-            else
-            {
-                GrupoMusicalOBJ.NombreGrupo = txtNombreAgrupacion.Text;
-            }
-            if (txtMonetizacionHora.Text == "")
-            {
-                MessageBox.Show("No ingreso la paga por hora de la Agrupacion.");
-                ClearAll();
-            }
-            else
-            {
-                GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
+                GrupoMusicalOBJ = new GrupoMusical();
+                if (txtNombreAgrupacion.Text == "")
+                {
+                    MessageBox.Show("No ingreso el nombre de la agrupacion.");
+                    ClearAll();
+                }
+                else
+                {
+                    GrupoMusicalOBJ.NombreGrupo = txtNombreAgrupacion.Text;
+                }
+                if (txtMonetizacionHora.Text == "")
+                {
+                    MessageBox.Show("No ingreso la paga por hora de la Agrupacion.");
+                    ClearAll();
+                }
+                else
+                {
+                    GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
 
-            }
-            if (txtCantidadIntegrantes.Text == "")
-            {
-                MessageBox.Show("No ingreso cuantos integrantes conforman su Agrupacion.");
-                ClearAll();
-            }
-            else
-            {
-                GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);             
+                }
+                if (txtCantidadIntegrantes.Text == "")
+                {
+                    MessageBox.Show("No ingreso cuantos integrantes conforman su Agrupacion.");
+                    ClearAll();
+                }
+                else
+                {
+                    GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);             
 
-            }
-            if (txtNombreDueño.Text == "")
-            {
-                MessageBox.Show("No ingreso el nombre del dueño de la Agrupacion.");
-                ClearAll();
-            }
-            else
-            {
-                 GrupoMusicalOBJ.NombreDueño = txtNombreDueño.Text;
-            }
-            if (cbo.Text == "")
-            {
-                MessageBox.Show("No ingreso el Genero de la agrupacion.");
-                ClearAll();
-            }
-            else
-            {
-                GrupoMusicalOBJ.Genero = cbo.Text;
+                }
+                if (txtNombreDueño.Text == "")
+                {
+                    MessageBox.Show("No ingreso el nombre del dueño de la Agrupacion.");
+                    ClearAll();
+                }
+                else
+                {
+                     GrupoMusicalOBJ.NombreDueño = txtNombreDueño.Text;
+                }
+                if (cbo.Text == "")
+                {
+                    MessageBox.Show("No ingreso el Genero de la agrupacion.");
+                    ClearAll();
+                }
+                else
+                {
+                    GrupoMusicalOBJ.Genero = cbo.Text;
 
+                }
+                GrupoMusicalOBJ.Estado = Estado();
+                GrupoMusicalOBJ.Clasificacion = Clasificacion();
+                GrupoMusicalOBJ.FechaFundacion = dtpFundacion.Text;
+                if (txtNombreDueño.Text != "" && txtNombreAgrupacion.Text != "" && txtMonetizacionHora.Text != "" && txtCantidadIntegrantes.Text != "" && cbo.Text != "")
+                {
+                    nuevaListaGrupo.AgregarNodo(GrupoMusicalOBJ);
+                    dataGridView1.Rows.Clear();
+                    MessageBox.Show("Ingrese el logo del Grupo Musical");
+                    AgregarImagen();
+                    AgregarGrupo();
+                    ClearAll();
+                }
+                else
+                {
+                    MessageBox.Show("Llene correctamente los datos.\n Intente de nuevo.");
+                }
             }
-            GrupoMusicalOBJ.Estado = Estado();
-            GrupoMusicalOBJ.Clasificacion = Clasificacion();
-            GrupoMusicalOBJ.FechaFundacion = dtpFundacion.Text;
-            nuevaListaGrupo.AgregarNodo(GrupoMusicalOBJ);
+            catch (Exception)
+            {
 
-            dataGridView1.Rows.Clear();
-            AgregarImagen();
-            AgregarGrupo();
-            ClearAll();
+                throw new Exception("---------ERROR---------\nIntente de nuevo");
+            }
 
         }
         public void AgregarImagen()
@@ -164,38 +179,70 @@ namespace ActividadesED
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                nuevaListaGrupo.EliminarNodo(GrupoMusicalOBJ);
+                dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+                MessageBox.Show("Grupo Eliminado \n " + GrupoMusicalOBJ.NombreGrupo);
+                ClearAll();
+            }
+            catch (Exception)
+            {
 
-            nuevaListaGrupo.EliminarNodo(GrupoMusicalOBJ);
-            dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
-            MessageBox.Show("Grupo Eliminado \n " + GrupoMusicalOBJ.NombreGrupo);
-            ClearAll();
+                throw new Exception("----------ERROR-----------\nIntente de nuevo");
+            }
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            GrupoMusical grupoMusical = new GrupoMusical();
-            grupoMusical.NombreGrupo = txtNombreAgrupacion.Text;
-            grupoMusical.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
-            grupoMusical.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);
-            grupoMusical.NombreDueño = txtNombreDueño.Text;
-            grupoMusical.Genero = cbo.Text;
-            grupoMusical.Estado = Estado();
-            grupoMusical.Clasificacion = Clasificacion();
-            grupoMusical.FechaFundacion = dtpFundacion.Text;
-            nuevaListaGrupo.BuscarNodo(grupoMusical);
-            MessageBox.Show("Grupo encontrado: \n" + grupoMusical.NombreGrupo);
-            ClearAll();
+            try
+            {
+                GrupoMusical grupoMusical = new GrupoMusical();
+                grupoMusical.NombreGrupo = txtNombreAgrupacion.Text;
+                grupoMusical.PrecioHora = Convert.ToDouble(txtMonetizacionHora.Text);
+                grupoMusical.CantidadIntegrantes = Convert.ToInt32(txtCantidadIntegrantes.Text);
+                grupoMusical.NombreDueño = txtNombreDueño.Text;
+                grupoMusical.Genero = cbo.Text;
+                grupoMusical.Estado = Estado();
+                grupoMusical.Clasificacion = Clasificacion();
+                grupoMusical.FechaFundacion = dtpFundacion.Text;
+                nuevaListaGrupo.BuscarNodo(grupoMusical);
+                MessageBox.Show("Grupo encontrado: \n" + grupoMusical.NombreGrupo);
+                ClearAll();
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("----------ERROR----------\nIntente de Nuevo"); 
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             GrupoMusicalOBJ = new GrupoMusical();
-            GrupoMusicalOBJ.NombreGrupo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(dataGridView1.CurrentRow.Cells[1].Value.ToString());
-            GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-            GrupoMusicalOBJ.NombreDueño = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            GrupoMusicalOBJ.Genero = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "")
+            {
+                GrupoMusicalOBJ.NombreGrupo = "Indefinido";
+            }else { GrupoMusicalOBJ.NombreGrupo = dataGridView1.CurrentRow.Cells[0].Value.ToString(); }
+            if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == "")
+            {
+                GrupoMusicalOBJ.PrecioHora = 0;
+            }else { GrupoMusicalOBJ.PrecioHora = Convert.ToDouble(dataGridView1.CurrentRow.Cells[1].Value.ToString()); }
+            if (dataGridView1.CurrentRow.Cells[2].Value.ToString() == "")
+            {
+                GrupoMusicalOBJ.CantidadIntegrantes = 0;
+            }else { GrupoMusicalOBJ.CantidadIntegrantes = Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value.ToString()); }
+            if (dataGridView1.CurrentRow.Cells[3].Value.ToString() == "")
+            {
+                GrupoMusicalOBJ.NombreDueño = "Indefinido";
+            }else { GrupoMusicalOBJ.NombreDueño = dataGridView1.CurrentRow.Cells[3].Value.ToString(); }
+            if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == "")
+            {
+                GrupoMusicalOBJ.Genero = "Indefinido";
+
+            }else { GrupoMusicalOBJ.Genero = dataGridView1.CurrentRow.Cells[4].Value.ToString(); }
             string EstadoAux = dataGridView1.CurrentRow.Cells[6].Value.ToString();
             GrupoMusicalOBJ.Clasificacion = Convert.ToChar(dataGridView1.CurrentRow.Cells[5].Value.ToString());
             if (EstadoAux == "NO")
@@ -236,8 +283,17 @@ namespace ActividadesED
 
         private void btnVaciar_Click(object sender, EventArgs e)
         {
-            nuevaListaGrupo.Vaciar();
-            dataGridView1.Rows.Clear();
+            try
+            {
+                nuevaListaGrupo.Vaciar();
+                dataGridView1.Rows.Clear();
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("----------ERROR----------\nIntente de nuevo");
+            }
 
 
         }
