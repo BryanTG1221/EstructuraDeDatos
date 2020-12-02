@@ -34,7 +34,6 @@
             this.btnBuscarNodo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dtmHora = new System.Windows.Forms.DateTimePicker();
             this.chkHomeOffice = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gpbRadioButtons = new System.Windows.Forms.GroupBox();
@@ -47,10 +46,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDibujar = new System.Windows.Forms.Button();
             this.btnGenerarNodos = new System.Windows.Forms.Button();
+            this.btnVaciar = new System.Windows.Forms.Button();
+            this.dtgMenores = new System.Windows.Forms.DataGridView();
+            this.btnLlenarMenore = new System.Windows.Forms.Button();
+            this.txtSalario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpbRadioButtons.SuspendLayout();
             this.gpbDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMenores)).BeginInit();
             this.SuspendLayout();
             // 
             // txtInt
@@ -93,7 +97,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 354);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -113,13 +117,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 7;
-            // 
-            // dtmHora
-            // 
-            this.dtmHora.Location = new System.Drawing.Point(64, 114);
-            this.dtmHora.Name = "dtmHora";
-            this.dtmHora.Size = new System.Drawing.Size(200, 22);
-            this.dtmHora.TabIndex = 8;
             // 
             // chkHomeOffice
             // 
@@ -190,10 +187,10 @@
             // 
             // gpbDatos
             // 
+            this.gpbDatos.Controls.Add(this.txtSalario);
             this.gpbDatos.Controls.Add(this.label3);
             this.gpbDatos.Controls.Add(this.label2);
             this.gpbDatos.Controls.Add(this.label1);
-            this.gpbDatos.Controls.Add(this.dtmHora);
             this.gpbDatos.Controls.Add(this.txtInt);
             this.gpbDatos.Controls.Add(this.comboBox1);
             this.gpbDatos.Controls.Add(this.chkHomeOffice);
@@ -209,9 +206,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.Size = new System.Drawing.Size(52, 17);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Fecha:";
+            this.label3.Text = "Salario";
             // 
             // label2
             // 
@@ -251,11 +248,52 @@
             this.btnGenerarNodos.UseVisualStyleBackColor = true;
             this.btnGenerarNodos.Click += new System.EventHandler(this.btnGenerarNodos_Click);
             // 
+            // btnVaciar
+            // 
+            this.btnVaciar.Location = new System.Drawing.Point(775, 263);
+            this.btnVaciar.Name = "btnVaciar";
+            this.btnVaciar.Size = new System.Drawing.Size(115, 40);
+            this.btnVaciar.TabIndex = 15;
+            this.btnVaciar.Text = "Vaciar";
+            this.btnVaciar.UseVisualStyleBackColor = true;
+            this.btnVaciar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dtgMenores
+            // 
+            this.dtgMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMenores.Location = new System.Drawing.Point(12, 611);
+            this.dtgMenores.Name = "dtgMenores";
+            this.dtgMenores.RowHeadersWidth = 51;
+            this.dtgMenores.RowTemplate.Height = 24;
+            this.dtgMenores.Size = new System.Drawing.Size(883, 213);
+            this.dtgMenores.TabIndex = 16;
+            this.dtgMenores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMenores_CellContentClick);
+            // 
+            // btnLlenarMenore
+            // 
+            this.btnLlenarMenore.Location = new System.Drawing.Point(774, 309);
+            this.btnLlenarMenore.Name = "btnLlenarMenore";
+            this.btnLlenarMenore.Size = new System.Drawing.Size(116, 38);
+            this.btnLlenarMenore.TabIndex = 17;
+            this.btnLlenarMenore.Text = "Filtro Menores";
+            this.btnLlenarMenore.UseVisualStyleBackColor = true;
+            this.btnLlenarMenore.Click += new System.EventHandler(this.btnLlenarMenore_Click);
+            // 
+            // txtSalario
+            // 
+            this.txtSalario.Location = new System.Drawing.Point(65, 111);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(121, 22);
+            this.txtSalario.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 523);
+            this.ClientSize = new System.Drawing.Size(902, 836);
+            this.Controls.Add(this.btnLlenarMenore);
+            this.Controls.Add(this.dtgMenores);
+            this.Controls.Add(this.btnVaciar);
             this.Controls.Add(this.btnGenerarNodos);
             this.Controls.Add(this.btnDibujar);
             this.Controls.Add(this.gpbDatos);
@@ -267,12 +305,14 @@
             this.Controls.Add(this.btnIngresar);
             this.Name = "Form1";
             this.Text = "Arbol BInario de Busqueda";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gpbRadioButtons.ResumeLayout(false);
             this.gpbRadioButtons.PerformLayout();
             this.gpbDatos.ResumeLayout(false);
             this.gpbDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMenores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,7 +325,6 @@
         private System.Windows.Forms.Button btnBuscarNodo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dtmHora;
         private System.Windows.Forms.CheckBox chkHomeOffice;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gpbRadioButtons;
@@ -298,6 +337,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerarNodos;
+        private System.Windows.Forms.Button btnVaciar;
+        private System.Windows.Forms.DataGridView dtgMenores;
+        private System.Windows.Forms.Button btnLlenarMenore;
+        private System.Windows.Forms.TextBox txtSalario;
     }
 }
 

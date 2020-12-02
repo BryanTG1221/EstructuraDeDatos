@@ -43,8 +43,17 @@ namespace ArbolBinarioBusqueda
 
 		public override string ToString()
 		{
-			return this.Edad.ToString();
+			return this.Salario.ToString();
 		}
+
+		private double _dblSalario;
+
+		public double Salario
+		{
+			get { return _dblSalario; }
+			set { _dblSalario = value; }
+		}
+
 
 
 
@@ -63,9 +72,9 @@ namespace ArbolBinarioBusqueda
 
 		public int CompareTo(ClaseRoja Objeto)
 		{
-			if (this.Edad > Objeto.Edad)
+			if (this.Salario > Objeto.Salario)
 				return 1;
-			if(this.Edad < Objeto.Edad)
+			if(this.Salario < Objeto.Salario)
 			{
 				return -1;
 			}

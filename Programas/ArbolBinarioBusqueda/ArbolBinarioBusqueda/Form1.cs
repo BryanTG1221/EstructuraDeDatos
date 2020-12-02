@@ -18,7 +18,7 @@ namespace ArbolBinarioBusqueda
             dataGridView1.Columns.Add("Edad", "Edad ");
             dataGridView1.Columns.Add("Puesto", "Puesto");
             dataGridView1.Columns.Add("Home Office", "Home Office");
-            dataGridView1.Columns.Add("Fecha", "Fecha");
+            dataGridView1.Columns.Add("SALARIO", "Salario");
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -26,6 +26,18 @@ namespace ArbolBinarioBusqueda
             dataGridView1.MultiSelect = false;
             dataGridView1.ReadOnly = true;
             rdbPreOrden.Checked = true;
+
+
+            dtgMenores.Columns.Add("Edad", "Edad ");
+            dtgMenores.Columns.Add("Puesto", "Puesto");
+            dtgMenores.Columns.Add("Home Office", "Home Office");
+            dtgMenores.Columns.Add("Fecha", "Fecha");
+            dtgMenores.AllowUserToAddRows = false;
+            dtgMenores.AllowUserToDeleteRows = false;
+            dtgMenores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgMenores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgMenores.MultiSelect = false;
+            dtgMenores.ReadOnly = true;
         }
 
         ClaseRoja ObjetoInteligente;
@@ -49,13 +61,19 @@ namespace ArbolBinarioBusqueda
             int NumeroUnoDos = Convert.ToInt32(rnd.Next(1, 80));
             return NumeroUnoDos;
         }
+        public double GenerarDblRandom()
+        {
+            Random rnd = new Random();
+            double Salario = Convert.ToDouble(rnd.Next(500, 10000));
+            return Salario;
+        }
 
         public void AgregarNodoAlData()
         {
             dataGridView1.Rows.Clear();
             foreach (ClaseRoja Persona in ArbolBianario.RecorrerPreOrden())
             {
-                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Hora);
+                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Salario);
             }
         }
 
@@ -64,7 +82,7 @@ namespace ArbolBinarioBusqueda
             ObjetoInteligente = new ClaseRoja();
             ObjetoInteligente.Edad = GenerarIntRandom();
             ObjetoInteligente.Puesto = comboBox1.Text;
-            ObjetoInteligente.Hora = Convert.ToDateTime(dtmHora.Text);
+            ObjetoInteligente.Salario = GenerarDblRandom();
             if (chkHomeOffice.Checked)
             {
                 ObjetoInteligente.HomeOffice = true;
@@ -83,7 +101,7 @@ namespace ArbolBinarioBusqueda
         {
             txtInt.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             comboBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            dtmHora.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtSalario.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             if (chkHomeOffice.Checked)
             {
                 chkHomeOffice.Checked = true;
@@ -120,7 +138,7 @@ namespace ArbolBinarioBusqueda
             dataGridView1.Rows.Clear();
             foreach (ClaseRoja Persona in ArbolBianario.RecorrerPreOrden())
             {
-                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Hora);
+                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Salario);
             }
         }
 
@@ -129,7 +147,7 @@ namespace ArbolBinarioBusqueda
             dataGridView1.Rows.Clear();
             foreach (ClaseRoja Persona in ArbolBianario.RecorrerInOrden())
             {
-                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Hora);
+                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Salario);
             }
         }
 
@@ -138,7 +156,7 @@ namespace ArbolBinarioBusqueda
             dataGridView1.Rows.Clear();
             foreach (ClaseRoja Persona in ArbolBianario.RecorrerPostOrden())
             {
-                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Hora);
+                dataGridView1.Rows.Add(Persona.Edad, Persona.Puesto, Persona.HomeOffice, Persona.Salario);
             }
         }
 
@@ -155,8 +173,8 @@ namespace ArbolBinarioBusqueda
                 string[] Puesto = new string[] { "Jefe", "Operador", "Surpevisor","Pasante" };
                 string TipoP = ""; TipoP += Puesto[rnd.Next(0, 3)].ToString();
                 comboBox1.Text = TipoP;
-                dtmHora.Text = Convert.ToString(RandomDay());
-                GenerarStringRandom();
+                 txtInt.Text = Convert.ToString(GenerarIntRandom());
+                 txtSalario.Text = Convert.ToString(GenerarDblRandom());
                 if (GenerarIntRandom() == 1)
                 {
                     chkHomeOffice.Checked = true;
@@ -166,9 +184,9 @@ namespace ArbolBinarioBusqueda
                     chkHomeOffice.Checked = false;
                 }
 
-                ObjetoInteligente.Edad = GenerarIntRandom();
+                ObjetoInteligente.Edad = Convert.ToInt32(txtInt.Text);
                 ObjetoInteligente.Puesto = comboBox1.Text;
-                ObjetoInteligente.Hora = Convert.ToDateTime(dtmHora.Text);
+              ObjetoInteligente.Salario = Convert.ToDouble(txtSalario.Text);
                 if (chkHomeOffice.Checked)
                 {
                     ObjetoInteligente.HomeOffice = true;
@@ -206,7 +224,7 @@ namespace ArbolBinarioBusqueda
         {
             ObjetoInteligente.Edad = Convert.ToInt32(txtInt.Text);
             ObjetoInteligente.Puesto = comboBox1.Text;
-            ObjetoInteligente.Hora = Convert.ToDateTime(dtmHora.Text);
+            ObjetoInteligente.Salario = Convert.ToDouble(txtSalario.Text);
             if (chkHomeOffice.Checked)
             {
                 ObjetoInteligente.HomeOffice = true;
@@ -297,6 +315,51 @@ namespace ArbolBinarioBusqueda
             }
             AliasFigura.Close();
             picABB.Refresh();
-        } 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArbolBianario.Vaciar();
+            AgregarNodoAlData();
+            dtgMenores.Rows.Clear();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLlenarMenore_Click(object sender, EventArgs e)
+        {
+            ClaseRoja ObjetoInteligente = new ClaseRoja();
+            ObjetoInteligente.Edad = Convert.ToInt32(txtInt.Text);
+            ObjetoInteligente.Puesto = comboBox1.Text;
+            ObjetoInteligente.Salario = Convert.ToDouble(txtSalario.Text);
+            dtgMenores.Rows.Clear();
+            MessageBox.Show(ArbolBianario.FiltroMenores(ObjetoInteligente));
+            Prueba(ObjetoInteligente.Salario);
+        }
+
+      
+        
+
+       public void Prueba(double Salario1)
+        {
+            foreach (ClaseRoja miTrabajador in ArbolBianario.RecorrerPreOrden())
+            {
+                if (Salario1 > miTrabajador.Salario)
+                {
+                    dtgMenores.Rows.Add(miTrabajador.Edad, miTrabajador.Puesto, miTrabajador.Salario);
+                }
+            }
+        }
+
+
+        
+
+        private void dtgMenores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -87,26 +87,26 @@ namespace ArbolBinarioBusqueda
 		{
 			if (Vacio) throw new Exception("Esta vacia");
 			ClaseNodo<Tipo> nodoActual = Raiz, Padre = null;
-			// Búsqueda del nodo que se desea eliminar 
+			
 			while (!Objeto.Equals(nodoActual.ObjetoConDatos))
 			{
 				if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == -1)
 				{
 					Padre = nodoActual; nodoActual = nodoActual.HijoIzquierdo;
-					// Recorre el subárbol izquierdo
+				
 				}
 				else
 				{
 					if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == 1)
 					{
 						Padre = nodoActual; nodoActual = nodoActual.HijoDerecho;
-						// Recorre el subárbol derecho 
+						
 					}
 				}
 				if (nodoActual == null) throw new Exception("No se encontro");
-				// No se eliminó ... no existe el nodo 
-			} // Se encontró el nodo que se desea eliminar 
-			  // Caso 1: Si el NodoActual no tiene hijo derecho entonces su hijo izquierdo se convierte en // el nodo apuntado por su Padre 
+				
+			}  
+ 
 			if (nodoActual.HijoDerecho == null)
 			{
 				if (Padre == null) Raiz = nodoActual.HijoIzquierdo;
@@ -121,7 +121,7 @@ namespace ArbolBinarioBusqueda
 			}
 			else
 			{
-				// Caso 2: Si el hijo derecho del NodoActual no tiene hijo izquierdo entonces el hijo derecho // del NodoActual reemplaza al NodoActual 
+
 				if (nodoActual.HijoDerecho.HijoIzquierdo == null)
 				{
 					nodoActual.HijoDerecho.HijoIzquierdo = nodoActual.HijoIzquierdo;
@@ -137,17 +137,16 @@ namespace ArbolBinarioBusqueda
 				}
 				else
 				{
-					// Caso 3: Si el hijo derecho del NodoActual tiene hijo izquierdo se reemplaza el // NodoActual con el hijo menor del subárbol derecho 
-					// Inicia la búsqueda del nodo ubicado más a la izquierda de la rama derecha 
+
 					ClaseNodo<Tipo> NodoMenor = nodoActual.HijoDerecho.HijoIzquierdo, PadreDelNodoMenor = nodoActual.HijoDerecho;
 					while (NodoMenor.HijoIzquierdo != null)
 					{
 						PadreDelNodoMenor = NodoMenor;
 						NodoMenor = NodoMenor.HijoIzquierdo;
 					}
-					// El subárbol izquierdo de su padre se convierte en el subárbol derecho del NodoMenor 
+					 
 					PadreDelNodoMenor.HijoIzquierdo = NodoMenor.HijoDerecho;
-					// Asigna los hijos del NodoMenor a los hijos del NodoActual 
+					 
 					NodoMenor.HijoIzquierdo = nodoActual.HijoIzquierdo;
 					NodoMenor.HijoDerecho = nodoActual.HijoDerecho;
 					if (Padre == null) Raiz = NodoMenor;
@@ -162,6 +161,29 @@ namespace ArbolBinarioBusqueda
 				}
 			}
 			return (nodoActual.ObjetoConDatos);
+		}
+
+		public void Vaciar()
+		{
+			if (Vacio == false)
+			{
+				this.RecorrerYBuscar(this.Raiz);
+				this.Raiz = null;
+				return;
+			}
+			return;
+		}
+
+		private void RecorrerYBuscar(ClaseNodo<Tipo> nodoActual)
+		{
+			if (nodoActual != null)
+			{
+				this.RecorrerYBuscar(nodoActual.HijoIzquierdo);
+				this.RecorrerYBuscar(nodoActual.HijoDerecho);
+				this.Eliminar(nodoActual.ObjetoConDatos);
+				return;
+			}
+			return;
 		}
 
 
@@ -190,6 +212,32 @@ namespace ArbolBinarioBusqueda
 					}
 
 				}
+			} while (nodoActual != null);
+			throw new Exception("No se encontro el nodo seleccionado");
+		}
+
+		public string FiltroMenores(Tipo Objeto)
+		{
+			if (Vacio)
+			{
+				throw new Exception("No se puede buscar el dato, el arbol esta vacio");
+			}
+			ClaseNodo<Tipo> nodoActual = Raiz;
+			do
+			{
+					if (Objeto.CompareTo(nodoActual.ObjetoConDatos) == 1)
+					{
+						ClaseNodo<Tipo> nodoRegresado = nodoActual;
+						nodoActual = nodoActual.HijoDerecho;
+						return nodoRegresado.ObjetoConDatos.ToString();
+
+					}
+					else
+					{
+						nodoActual = nodoActual.HijoIzquierdo;
+					}
+
+				
 			} while (nodoActual != null);
 			throw new Exception("No se encontro el nodo seleccionado");
 		}
