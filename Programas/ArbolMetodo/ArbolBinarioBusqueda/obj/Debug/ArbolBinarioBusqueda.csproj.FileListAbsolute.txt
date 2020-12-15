@@ -1,0 +1,28 @@
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe.config
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.pdb
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csprojAssemblyReference.cache
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Form1.resources
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Properties.Resources.resources
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csproj.GenerateResource.cache
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan Turrubiates\source\repos\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.pdb
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe.config
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.pdb
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csprojAssemblyReference.cache
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Form1.resources
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Properties.Resources.resources
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csproj.GenerateResource.cache
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csproj.CoreCompileInputs.cache
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan\Desktop\ED\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.pdb
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe.config
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\bin\Debug\ArbolBinarioBusqueda.pdb
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csprojAssemblyReference.cache
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Form1.resources
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.Properties.Resources.resources
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.csproj.GenerateResource.cache
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.exe
+C:\Users\Bryan Turrubiates\Documents\EstructuraDeDatos\Programas\ArbolBinarioBusqueda\ArbolBinarioBusqueda\obj\Debug\ArbolBinarioBusqueda.pdb
